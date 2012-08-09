@@ -6,6 +6,9 @@ gem 'rails', '3.2.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+#gem 'sqlite3'
+#gem 'debugger'
+#3y9ncq{Dgb
 
 
 # Gems used only for assets and not required

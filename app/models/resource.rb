@@ -25,7 +25,7 @@ class Resource
   end
 
   def http_basic_auth
-    { username: username, password: password }
+    { user: username, password: password }
   end
 
   def api_url
