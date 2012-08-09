@@ -40,7 +40,7 @@
           <div class="control-group">
             <%= f.label :resource %>
             <div class="controls">
-              <%= f.select :resource, [['contact', 'contact'],['compay', 'company']] %>
+              <%= f.select :resource, %w(contact company).map { |r| [r.titleize, r] } %>
             </div>
           </div>
 

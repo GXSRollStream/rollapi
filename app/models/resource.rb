@@ -10,6 +10,7 @@ class Resource
   def persisted?
     false
   end
+
   def initialize(attrs={})
     attrs.each do | key, value |
       send("#{key}=", value)
@@ -17,12 +18,18 @@ class Resource
   end
 
   def search
-    begin
-    self.response = make_rest.send(request_type)
-    rescue
-      self.response = $!.response
-    end
+    self.response = begin
+                      if request_type =='get'
+                        make_rest.send(request_type)
+                      else
+                        make_rest.send(request_type, body)
+                      end
+                    rescue
+                      $!.response
+                    end
   end
+
+  private
 
   def http_basic_auth
     { user: username, password: password }
@@ -33,7 +40,11 @@ class Resource
   end
 
   def current
-    "#{resource}/#{target}.xml"
+    if target.present?
+      "#{resource}/#{target}.xml"
+    else
+      "#{resource}"
+    end
   end
 
   def make_rest
