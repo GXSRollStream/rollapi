@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  target_id: 1
+  target_type: MyString
+  target_kind: MyString
+  response: MyText
+  url: MyString
+  user: MyString
+  password: MyString
+  api_key: MyString
+
+two:
+  target_id: 1
+  target_type: MyString
+  target_kind: MyString
+  response: MyText
+  url: MyString
+  user: MyString
+  password: MyString
+  api_key: MyString

@@ -1,17 +1,19 @@
 class ResourcesController < ApplicationController
-  def index
-    @resource = Resource.new({
-      url: 'http://localhost:3000',
-      apiKey: 'apiKey',
-      username: 'apiKey',
-      password: 'password',
-      resource: 'contact'
-    })
+  def create
+    render json: Resource.create(params[:resource]) 
   end
 
-  def create
-    @resource = Resource.new(params[:resource])
-    @resource.search
-    render :index
+  def index
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: Resource.all }
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: { resource: Resource.find(params[:id]) } }
+    end
   end
 end

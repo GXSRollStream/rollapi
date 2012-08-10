@@ -1,0 +1,80 @@
+<section id="forms">
+  <div class="row">
+    <div class="span7 offset1">
+      <fieldset>
+        <legend>API Request Tester</legend>
+        <form {{action save}}>
+
+        <div class="control-group">
+          <div class="controls">
+            <label>URL</label>
+            {{url}}
+            {{view Ember.TextField valueBinding="url"}}
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>Api Key</label>
+          <div class="controls">
+          {{view Ember.TextField valueBinding="apiKey"}}
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>Username</label>
+          <div class="controls">
+            {{view Ember.TextField valueBinding="username"}}
+          </div>
+        </div>
+
+          <div class="control-group">
+            <label>Password</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="password"}}
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Resource</label>
+            <div class="controls">
+              {{#view Ember.Select  valueBinding="resource" }}
+                <option value="contact">Contact</option>
+                <option value="company">Company</option>
+              {{/view}}
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>RequestType</label>
+            <div class="controls">
+              {{#view Ember.Select  valueBinding="requestType" }}
+                <option value="get">GET</option>
+                <option value="post">POST</option>
+              {{/view}}
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>ID</label>
+            <div class="controls">
+              {{view Ember.TextField valueBinding="target" }}
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>body</label>
+            <div class="controls">
+              {{view Ember.TextArea valueBinding="body" }}
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">
+              Submit
+            </button>
+            <button class="btn" type="reset">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</section>

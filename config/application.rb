@@ -61,5 +61,6 @@ module Rollapi
 
     config.assets.initialize_on_precompile = false
     config.filter_parameters += [:password]
+    config.ember.variant = :development
   end
 end
