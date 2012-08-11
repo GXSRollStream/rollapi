@@ -24,9 +24,20 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rspec-rails'
+
+group :development do
+  gem 'guard-rspec'
+  gem 'growl'
+end
+
+gem 'vcr'
+gem 'fakeweb'
+
 gem 'twitter-bootstrap-rails'
 gem 'rest-client'
 gem 'ember-rails', "= 0.7.0"
+gem 'debugger'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -41,4 +52,3 @@ gem 'ember-rails', "= 0.7.0"
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'

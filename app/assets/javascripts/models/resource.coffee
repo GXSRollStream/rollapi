@@ -1,0 +1,11 @@
+Rollapi.Resource = DS.Model.extend
+  url: DS.attr('string')
+  user: DS.attr('string')
+  body: DS.attr('string')
+  apiKey: DS.attr('string')
+  password: DS.attr('string')
+  requestId: DS.attr('string')
+  requestMethod: DS.attr('string')
+  requestOwner: DS.attr('string')
+  responseBody: DS.attr('string')
+  responseCode: DS.attr('string')

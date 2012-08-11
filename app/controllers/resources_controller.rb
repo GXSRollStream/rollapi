@@ -1,6 +1,14 @@
 class ResourcesController < ApplicationController
   def create
-    render json: Resource.create(params[:resource]) 
+    @resource = Resource.create(params[:resource])
+    render json: @resource
+  end
+
+  def update
+    @resource = Resource.find(params[:id])
+    args = params[:resource].except(:response_code, :response_body, :id)
+    @resource.update_attributes(args)
+    render json: @resource
   end
 
   def index

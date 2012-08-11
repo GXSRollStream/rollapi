@@ -1,9 +1,9 @@
 class CreateResources < ActiveRecord::Migration
   def change
     create_table :resources do |t|
-      t.integer :target_id
-      t.string :target_type
-      t.string :target_kind
+      t.string :request_id
+      t.string :request_method
+      t.string :request_owner
       t.text :response
       t.text :body
       t.string :url

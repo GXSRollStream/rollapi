@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://joe_user%40example.org:Newpassword212@localhost:3000/api/v2000/contact/1?apiKey=apiKey
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Ruby
+      authorization:
+      - Basic am9lX3VzZXJAZXhhbXBsZS5vcmc6TmV3cGFzc3dvcmQyMTI=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      etag:
+      - ! '"ef596a0e6537422bf26f3196250c9ddb"'
+      last-modified:
+      - Sat, 11 Aug 2012 00:31:40 GMT
+      content-type:
+      - application/xml; charset=utf-8
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-ua-compatible:
+      - IE=Edge
+      set-cookie:
+      - _community_service_session=bde980ff191f7387f93d39353bda4d57; path=/; HttpOnly
+      x-request-id:
+      - 7c3dabe4ff565a0f664ea163d76e2db0
+      x-runtime:
+      - '0.101561'
+      content-length:
+      - '1647'
+      connection:
+      - keep-alive
+      server:
+      - thin 1.3.1 codename Triple Espresso
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Contact>\n  <MetaData>\n
+        \   <Created>Fri, 10 Aug 2012 21:25:19 GMT</Created>\n    <Updated>Sat, 11
+        Aug 2012 00:31:40 GMT</Updated>\n    <URL>http://localhost:3000/api/v2000/Contact/1.xml?apiKey=apiKey</URL>\n
+        \ </MetaData>\n  <ID read_only=\"Y\">1</ID>\n  <Saluation/>\n  <FirstName>Joe</FirstName>\n
+        \ <LastName>User</LastName>\n  <Title/>\n  <Email>joe_user@example.org</Email>\n
+        \ <Broker>false</Broker>\n  <MasterBroker>false</MasterBroker>\n  <WorkPhone/>\n
+        \ <MobilePhone/>\n  <Address>\n    <Line1></Line1>\n    <Line2></Line2>\n
+        \   <Line3></Line3>\n    <City></City>\n    <State></State>\n    <Country></Country>\n
+        \   <StateISO read_only=\"Y\"></StateISO>\n    <CountryISO read_only=\"Y\"></CountryISO>\n
+        \   <Zipcode></Zipcode>\n  </Address>\n  <Disabled></Disabled>\n  <BusinessRoles
+        read_only=\"Y\">\n    <Role identifier=\"1\">Contact</Role>\n  </BusinessRoles>\n
+        \ <CustomFields/>\n  <Notes/>\n  <Company>\n    <MetaData>\n      <Created>Fri,
+        10 Aug 2012 21:25:17 GMT</Created>\n      <Updated>Fri, 10 Aug 2012 21:25:17
+        GMT</Updated>\n      <URL>http://localhost:3000/api/v2000/Company/1.xml?apiKey=apiKey</URL>\n
+        \   </MetaData>\n    <ID read_only=\"Y\">1</ID>\n    <Name>RollStream</Name>\n
+        \   <CompanyID>rs</CompanyID>\n    <WebsiteURL/>\n    <Email/>\n    <Phone/>\n
+        \   <Fax/>\n    <Employees/>\n    <Address>\n      <Line1></Line1>\n      <Line2></Line2>\n
+        \     <Line3></Line3>\n      <City></City>\n      <State></State>\n      <Country></Country>\n
+        \     <StateISO read_only=\"Y\"></StateISO>\n      <CountryISO read_only=\"Y\"></CountryISO>\n
+        \     <Zipcode></Zipcode>\n    </Address>\n    <Disabled></Disabled>\n    <CustomFields/>\n
+        \   <Notes/>\n  </Company>\n</Contact>\n"
+    http_version: '1.1'
+  recorded_at: Sat, 11 Aug 2012 02:15:38 GMT
+recorded_with: VCR 2.1.1

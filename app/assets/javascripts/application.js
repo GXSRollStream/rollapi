@@ -7,6 +7,8 @@
 //= require_self
 //= require rollapi
 
-Rollapi = Ember.Application.create();
+Rollapi = Ember.Application.create({
+  rootElement: '.container'
+});
 
 //= require_tree .

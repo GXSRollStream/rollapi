@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20120810044904) do
 
   create_table "resources", :force => true do |t|
-    t.integer  "target_id"
-    t.string   "target_type"
-    t.string   "target_kind"
+    t.string   "request_id"
+    t.string   "request_method"
+    t.string   "request_owner"
     t.text     "response"
     t.text     "body"
     t.string   "url"
     t.string   "user"
     t.string   "password"
     t.string   "api_key"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
