@@ -42,10 +42,15 @@ class Resource
       parts << request_id
     end
 
+    parts << 'search' if search?
+
     parts.join('/')
   end
 
   private
+    def search?
+      request_method == 'search'
+    end
 
     def http_basic_auth
       { user: user, password: password }

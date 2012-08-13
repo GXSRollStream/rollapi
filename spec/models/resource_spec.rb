@@ -79,7 +79,7 @@ describe Resource, "#api_url" do
                        request_owner: 'company', 
                        url: 'http://localhost:3000'})
 
-    r.api_url.should eql('http://localhost:3000/api/v2000/company')
+    r.api_url.should eql('http://localhost:3000/api/v2000/company/search')
   end
 end
 
