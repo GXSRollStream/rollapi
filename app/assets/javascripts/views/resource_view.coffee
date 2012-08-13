@@ -1,5 +1,8 @@
 Rollapi.ResourceView = Ember.View.extend
   templateName: 'resource'
+  validateUrl: (event) ->
+    @controller.validate('url')
+
   search: (event) ->
     controller = event.view.get('controller')
 

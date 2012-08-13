@@ -15,9 +15,13 @@
     <div {{bindAttr class="groupClass urlError:error"}}>
       <label class="control-label">URL http://localhost:3000 </label>
       <div class="controls">
-        {{view Ember.TextField valueBinding="url" class="input-xlarge"}}
+        {{view Rollapi.ResourceTextField field="url" valueBinding="url" class="input-xlarge"}}
         {{#if urlError}}
-        {{errorHelper urlError}}
+          <span class="label label-important">{{urlError}}</span>
+        {{else}}
+          {{#if validatedUrl}}
+            <span class="label label-success">Success</span>
+          {{/if}}
         {{/if}}
       </div>
     </div>
@@ -25,9 +29,13 @@
     <div {{bindAttr class="groupClass userError:error"}}>
       <label class="control-label">Username</label>
       <div class="controls">
-        {{view Ember.TextField valueBinding="user"}}
+        {{view Rollapi.ResourceTextField field="user" valueBinding="user"}}
         {{#if userError}}
-        {{errorHelper userError}}
+          <span class="label label-important">{{userError}}</span>
+        {{else}}
+          {{#if validatedUser}}
+            <span class="label label-success">Success</span>
+          {{/if}}
         {{/if}}
       </div>
     </div>
@@ -35,52 +43,63 @@
     <div {{bindAttr class="groupClass passwordError:error"}}>
       <label class="control-label">Password</label>
       <div class="controls">
-        {{view Ember.TextField valueBinding="password" type="password"}}
+        {{view Rollapi.ResourceTextField field="password" valueBinding="password" type="password"}}
         {{#if passwordError}}
-        {{errorHelper passwordError}}
+          <span class="label label-important">{{passwordError}}</span>
+        {{else}}
+          {{#if validatedPassword}}
+            <span class="label label-success">Success</span>
+          {{/if}}
         {{/if}}
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass request_ownerError:error"}}>
+    <div {{bindAttr class="groupClass"}}>
       <label class="control-label">Company/Contact</label>
       <div class="controls">
         {{view Ember.Select  contentBinding="requestOwners" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="request_owner"}}
-        {{#if request_ownerError}}
-        {{errorHelper request_ownerError}}
-        {{/if}}
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass request_methodError:error"}}>
+    <div {{bindAttr class="groupClass"}}>
       <label class="control-label">create/find/search</label>
       <div class="controls">
         {{view Ember.Select  contentBinding="requestMethods" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="request_method"}}
-        {{#if request_methodError}}
-        {{errorHelper request_methodError}}
-        {{/if}}
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass request_idError:error"}}>
-      <label class="control-label">Company/Contact ID</label>
-      <div class="controls">
-        {{view Ember.TextField valueBinding="request_id" }}
-        {{#if request_idError}}
-          {{errorHelper request_idError}}
-        {{/if}}
+    {{#if needId}}
+      <div {{bindAttr class="groupClass requestIdError:error"}}>
+        <label class="control-label">Company/Contact ID</label>
+        <div class="controls">
+          {{view Rollapi.ResourceTextField field="request_id" valueBinding="request_id" }}
+          {{#if requestIdError}}
+            <span class="label label-important">{{requestIdError}}</span>
+          {{else}}
+            {{#if validatedRequestId}}
+              <span class="label label-success">Success</span>
+            {{/if}}
+          {{/if}}
+        </div>
       </div>
-    </div>
+    {{/if}}
 
-    <div {{bindAttr class="groupClass bodyError:error"}}>
-      <label class="control-label">Request Body</label>
-      <div class="controls">
-        {{view Ember.TextArea valueBinding="body" class="input-xlarge" rows="10"}}
-        {{#if bodyError}}
-        {{errorHelper bodyError}}
-        {{/if}}
+
+    {{#if needBody}}
+      <div {{bindAttr class="groupClass bodyError:error"}}>
+        <label class="control-label">Request Body</label>
+        <div class="controls">
+          {{view Rollapi.ResourceTextArea field="body" valueBinding="body" class="input-xlarge" rows="10"}}
+          {{#if bodyError}}
+            <span class="label label-important">{{bodyError}}</span>
+          {{else}}
+            {{#if validatedBody}}
+              <span class="label label-success">Success</span>
+            {{/if}}
+          {{/if}}
+        </div>
       </div>
-    </div>
+    {{/if}}
 
     <div class="form-actions">
       <button class="btn btn-primary" type="submit" {{action search target="this"}}>
@@ -89,5 +108,4 @@
       <button class="btn" type="reset">Cancel</button>
     </div>
   </fieldset>
-
 </form>
