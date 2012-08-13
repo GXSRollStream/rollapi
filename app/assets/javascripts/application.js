@@ -6,6 +6,7 @@
 //= require ember-data
 //= require_self
 //= require rollapi
+//= require vkbeautify
 
 Rollapi = Ember.Application.create({
   rootElement: '.container'

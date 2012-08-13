@@ -3,6 +3,11 @@
   {{#if response_code}}
     <span class="label">Last Request</span>
     <span {{bindAttr class="resultClass"}}>{{result}}</span>
+    <div class="control-group">
+      <label class="control-label">Response Body</label>
+      {{view Ember.TextArea valueBinding="formattedResult" disabled="true" class="input-xlarge" rows="10"}}
+      </div>
+    </div>
   {{/if}}
 
   <fieldset>
@@ -31,7 +36,7 @@
     <div {{bindAttr class="groupClass passwordError:error"}}>
       <label class="control-label">Password</label>
       <div class="controls">
-        {{view Ember.TextField valueBinding="password"}}
+        {{view Ember.TextField valueBinding="password" type="password"}}
         {{#if passwordError}}
         {{errorHelper passwordError}}
         {{/if}}
@@ -63,8 +68,8 @@
       <div class="controls">
         {{view Ember.TextField valueBinding="request_id" }}
         {{#if request_idError}}
+          {{errorHelper request_idError}}
         {{/if}}
-        {{errorHelper request_idError}}
       </div>
     </div>
 

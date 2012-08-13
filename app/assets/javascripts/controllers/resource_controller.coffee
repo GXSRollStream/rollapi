@@ -11,6 +11,9 @@ Rollapi.ResourceController = Ember.ObjectController.extend
     Ember.Object.create({label: "Conatct", value: 'contact'})
   ]
   fields: ['url', 'user', 'password'] 
+  formattedResult: (->
+    vkbeautify.xml(@.get('response_body'))
+  ).property('response_body')
   result: (->
     switch @.get('response_code')
       when 200 then 'Success'
