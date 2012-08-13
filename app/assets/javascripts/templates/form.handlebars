@@ -1,6 +1,6 @@
 <form class="form-horizontal well">
 
-  {{#if id}}
+  {{#if response_code}}
     <span class="label">Last Request</span>
     <span {{bindAttr class="resultClass"}}>{{result}}</span>
   {{/if}}
@@ -38,33 +38,33 @@
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass requestOwnerError:error"}}>
+    <div {{bindAttr class="groupClass request_ownerError:error"}}>
       <label class="control-label">Company/Contact</label>
       <div class="controls">
-        {{view Ember.Select  contentBinding="requestOwners" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="requestOwner"}}
-        {{#if requestOwnerError}}
-        {{errorHelper requestOwnerError}}
+        {{view Ember.Select  contentBinding="requestOwners" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="request_owner"}}
+        {{#if request_ownerError}}
+        {{errorHelper request_ownerError}}
         {{/if}}
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass requestMethodError:error"}}>
+    <div {{bindAttr class="groupClass request_methodError:error"}}>
       <label class="control-label">create/find/search</label>
       <div class="controls">
-        {{view Ember.Select  contentBinding="requestMethods" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="requestMethod"}}
-        {{#if requestMethodError}}
-        {{errorHelper requestMethodError}}
+        {{view Ember.Select  contentBinding="requestMethods" optionLabelPath="content.label" optionValuePath="content.value" valueBinding="request_method"}}
+        {{#if request_methodError}}
+        {{errorHelper request_methodError}}
         {{/if}}
       </div>
     </div>
 
-    <div {{bindAttr class="groupClass requestIdError:error"}}>
+    <div {{bindAttr class="groupClass request_idError:error"}}>
       <label class="control-label">Company/Contact ID</label>
       <div class="controls">
-        {{view Ember.TextField valueBinding="requestId" }}
-        {{#if requestIdError}}
-        {{errorHelper requestIdError}}
+        {{view Ember.TextField valueBinding="request_id" }}
+        {{#if request_idError}}
         {{/if}}
+        {{errorHelper request_idError}}
       </div>
     </div>
 
@@ -79,7 +79,7 @@
     </div>
 
     <div class="form-actions">
-      <button class="btn btn-primary" type="submit"{{action submitSearch target="this"}}>
+      <button class="btn btn-primary" type="submit" {{action search target="this"}}>
         Submit
       </button>
       <button class="btn" type="reset">Cancel</button>

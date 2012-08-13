@@ -1,6 +1,7 @@
 class ResourcesController < ApplicationController
-  def create
-    @resource = Resource.create(params[:resource])
+  def search
+    @resource = Resource.new(params[:resource])
+    @resource.search
     render json: @resource
   end
 

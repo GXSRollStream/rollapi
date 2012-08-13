@@ -1,6 +1,6 @@
 Rollapi::Application.routes.draw do
-  resources :resources
   root :to => 'resources#index'
+  match 'search' => 'resources#search', method: :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

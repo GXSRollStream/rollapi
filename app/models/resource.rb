@@ -1,18 +1,27 @@
-class Resource < ActiveRecord::Base
-  ATTRIBUTES = %w(api_key password  response api_key request_method request_id request_owner url user body)
+class Resource
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
+
+  ATTRIBUTES = %w(response_body response_code password  response api_key request_method request_id request_owner url user body)
+
   METHOD_MAPPING = { find: 'get', search: 'post', create: 'post', update: 'put' }
 
-  store :response, accessors: [ :response_body, :response_code ]
+  attr_accessor *ATTRIBUTES
 
-  attr_accessible *(ATTRIBUTES - %w(response_body responde_code id))
-
-  validates_presence_of *(ATTRIBUTES - %w(body response request_method))
-
-  validate :request_method, presence: true, in: %w(find search create update)
   validate :request_id, if: :member_method?
 
-  before_save :search
-  before_validation :set_api_key, unless: :api_key
+  def persisted?
+    false
+  end
+
+  def initialize(attrs={})
+    attrs.each do | key, value |
+      send("#{key}=", value)
+    end
+
+    self.api_key ||= 'apiKey'
+  end
 
   def search
     self.response_body, self.response_code = call
@@ -40,10 +49,6 @@ class Resource < ActiveRecord::Base
 
     def http_basic_auth
       { user: user, password: password }
-    end
-
-    def set_api_key
-      self.api_key ||= 'apiKey'
     end
 
     def call
