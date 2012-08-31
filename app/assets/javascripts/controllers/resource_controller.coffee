@@ -8,8 +8,8 @@ Rollapi.ResourceController = Ember.ObjectController.extend
     Ember.Object.create({label: "Update", value: 'update'})
   ],
   requestOwners: [
-    Ember.Object.create({label: "Comapny", value: 'company'}),
-    Ember.Object.create({label: "Conatct", value: 'contact'})
+    Ember.Object.create({label: "Company", value: 'company'}),
+    Ember.Object.create({label: "Contact", value: 'contact'})
   ]
 
   formattedResult: (->
