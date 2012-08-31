@@ -1,5 +1,6 @@
 Rollapi.ResourceController = Ember.ObjectController.extend
   groupClass: 'control-group'
+
   requestMethods: [
     Ember.Object.create({label: "Find", value: 'find'}),
     Ember.Object.create({label: "Search", value: 'search'})

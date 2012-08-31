@@ -1,8 +1,11 @@
 Rollapi.ResourceView = Ember.View.extend
   templateName: 'resource'
+  request: (event) ->
+    controller = event.view.get('controller')
+    controller.set('newResponse', false)
+    
   search: (event) ->
     controller = event.view.get('controller')
-
     if controller.isValid()
       $.ajax
         url: '/search'
@@ -10,4 +13,5 @@ Rollapi.ResourceView = Ember.View.extend
         dataType: 'json'
         type: 'post'
         success: (response) ->
+          controller.set('newResponse', true)
           controller.get('content').setProperties(response)

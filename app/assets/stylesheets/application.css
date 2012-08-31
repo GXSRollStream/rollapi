@@ -10,3 +10,8 @@
  *= require_self
  *= require_tree .
  */
+
+.input-xxlarge{
+  width: 500px;
+  color: #000000;
+}

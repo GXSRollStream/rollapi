@@ -1,14 +1,17 @@
 <form class="form-horizontal well">
-  {{#if response_code}}
+  {{#if newResponse}}
     <span class="label">Last Request</span>
     <span {{bindAttr class="resultClass"}}>{{result}}</span>
     <div class="control-group">
       <label class="control-label">Response Body</label>
-      {{view Ember.TextArea valueBinding="formattedResult" disabled="true" class="input-xlarge" rows="10"}}
+      {{view Ember.TextArea valueBinding="formattedResult" disabled="true" class="input-xxlarge" rows="10"}}
       </div>
     </div>
-  {{/if}}
 
+    <button class="btn btn-primary"  {{action request target="this"}}>
+      New Request
+    </button>
+  {{else}}
   <fieldset>
     <legend>API Request Tester</legend>
 
@@ -20,7 +23,7 @@
           <span class="label label-important">{{urlError}}</span>
         {{else}}
           {{#if validatedUrl}}
-            <span class="label label-success">Success</span>
+            <span class="label label-success">Valid Format</span>
           {{/if}}
         {{/if}}
       </div>
@@ -34,7 +37,7 @@
           <span class="label label-important">{{userError}}</span>
         {{else}}
           {{#if validatedUser}}
-            <span class="label label-success">Success</span>
+            <span class="label label-success">Valid Format</span>
           {{/if}}
         {{/if}}
       </div>
@@ -48,7 +51,7 @@
           <span class="label label-important">{{passwordError}}</span>
         {{else}}
           {{#if validatedPassword}}
-            <span class="label label-success">Success</span>
+            <span class="label label-success">Valid Format</span>
           {{/if}}
         {{/if}}
       </div>
@@ -77,7 +80,7 @@
             <span class="label label-important">{{requestIdError}}</span>
           {{else}}
             {{#if validatedRequestId}}
-              <span class="label label-success">Success</span>
+                <span class="label label-success">Valid Format</span>
             {{/if}}
           {{/if}}
         </div>
@@ -89,12 +92,12 @@
       <div {{bindAttr class="groupClass bodyError:error"}}>
         <label class="control-label">Request Body</label>
         <div class="controls">
-          {{view Rollapi.ResourceTextArea field="body" valueBinding="body" class="input-xlarge" rows="10"}}
+          {{view Rollapi.ResourceTextArea field="body" valueBinding="body" class="input-xxlarge" rows="10"}}
           {{#if bodyError}}
             <span class="label label-important">{{bodyError}}</span>
           {{else}}
             {{#if validatedBody}}
-              <span class="label label-success">Success</span>
+                <span class="label label-success">Valid Format</span>
             {{/if}}
           {{/if}}
         </div>
@@ -108,4 +111,5 @@
       <button class="btn" type="reset">Cancel</button>
     </div>
   </fieldset>
+  {{/if}}
 </form>
